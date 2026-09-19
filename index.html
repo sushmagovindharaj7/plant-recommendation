@@ -1,158 +1,389 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Smart Crop Recommendation</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f9f2;
+            color: #123b24;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            background: #123b24;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8ee0a8;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #8ee0a8;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background:
+                linear-gradient(rgba(18, 59, 36, 0.72),
+                rgba(18, 59, 36, 0.72)),
+                url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #9df0b3;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin-right: 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #39a861;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2e8b57;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #176b3a;
+        }
+
+        .btn-secondary:hover {
+            background: #dff2e2;
+            transform: translateY(-3px);
+        }
+
+        /* Features */
+        .features {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 35px;
+            color: #176b3a;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #567260;
+            margin-bottom: 40px;
+            font-size: 17px;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(20, 80, 40, 0.12);
+            transition: 0.3s;
+            border-top: 5px solid #39a861;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #176b3a;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .feature-card p {
+            color: #607468;
+            line-height: 1.6;
+        }
+
+        /* About section */
+        .about {
+            padding: 70px 8%;
+            background: #dff2e2;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            width: 50%;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-content {
+            width: 50%;
+        }
+
+        .about-content h2 {
+            color: #176b3a;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #456052;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .check {
+            margin: 12px 0;
+            font-weight: 500;
+            color: #285b3b;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 70px 8%;
+            background: #176b3a;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
+
+        /* Footer */
+        footer {
+            background: #123b24;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+            color: #cde6d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                min-height: 550px;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-image,
+            .about-content {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">🌱 Smart<span>Crop</span></div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            🌱 Smart<span>Crop</span>
+        </div>
 
-    <div>
-        <a href="index.html">Dashboard</a>
-        <a href="about.html">About</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <div>
-        <h1>Crop Recommendation Based on Soil Parameters</h1>
-
-        <p>
-            A smart agriculture prototype that analyzes soil and
-            environmental parameters and recommends a suitable crop.
-        </p>
-    </div>
-</section>
-
-<div class="container">
-
-    <div class="grid">
-
-        <!-- INPUT SECTION -->
-        <section class="card">
-
-            <h2>🌾 Soil & Environmental Parameters</h2>
-
-            <div class="form">
-
-                <label>
-                    Nitrogen (N)
-                    <input type="number" id="n" placeholder="Example: 90">
-                </label>
-
-                <label>
-                    Phosphorus (P)
-                    <input type="number" id="p" placeholder="Example: 42">
-                </label>
-
-                <label>
-                    Potassium (K)
-                    <input type="number" id="k" placeholder="Example: 43">
-                </label>
-
-                <label>
-                    Temperature (°C)
-                    <input type="number" id="temp" step="0.1"
-                           placeholder="Example: 25">
-                </label>
-
-                <label>
-                    Humidity (%)
-                    <input type="number" id="hum" step="0.1"
-                           placeholder="Example: 80">
-                </label>
-
-                <label>
-                    Soil pH
-                    <input type="number" id="ph" step="0.1"
-                           placeholder="Example: 6.5">
-                </label>
-
-                <label>
-                    Rainfall (mm)
-                    <input type="number" id="rain" step="0.1"
-                           placeholder="Example: 200">
-                </label>
-
-            </div>
-
-            <div class="buttons">
-
-                <button class="sample" onclick="sampleInput()">
-                    ✨ Sample Input
-                </button>
-
-                <button class="recommend" onclick="recommendCrop()">
-                    🔍 Recommend Crop
-                </button>
-
-            </div>
-
-        </section>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
 
 
-        <!-- RESULT SECTION -->
-        <section class="card result" id="result">
+    <!-- Hero Section -->
+    <section class="hero">
 
-            <div class="plant">🌱</div>
+        <div class="hero-content">
 
-            <h2>Ready for Analysis</h2>
+            <h1>
+                Smart Crop<br>
+                <span>Recommendation</span>
+            </h1>
 
             <p>
-                Enter the soil parameters and click
-                <b>Recommend Crop</b>.
+                Make better farming decisions using soil and environmental
+                parameters. Our system analyzes important conditions and
+                recommends a suitable crop for cultivation.
             </p>
 
-            <div class="tip">
-                💡 <b>Tip:</b> Click Sample Input for a quick demonstration.
-            </div>
+            <a href="dashboard.html" class="btn btn-primary">
+                🔍 Get Recommendation
+            </a>
 
-        </section>
+            <a href="about.html" class="btn btn-secondary">
+                🌱 Learn More
+            </a>
 
-    </div>
+        </div>
 
-</div>
+    </section>
 
 
-<!-- HOW IT WORKS -->
+    <!-- Features -->
+    <section class="features">
 
-<div class="container">
+        <h2 class="section-title">
+            Smart Agriculture Made Simple
+        </h2>
 
-    <section class="card">
+        <p class="section-subtitle">
+            Analyze your soil conditions and discover suitable crops.
+        </p>
 
-        <h2>⚙️ How It Works</h2>
+        <div class="feature-container">
 
-        <div class="steps">
+            <div class="feature-card">
+                <div class="feature-icon">🧪</div>
 
-            <div class="step">
-                <span>📝</span>
-                <h3>1. Input</h3>
+                <h3>Soil Parameters</h3>
+
                 <p>
-                    Enter nitrogen, phosphorus, potassium,
-                    pH and climate values.
+                    Enter Nitrogen, Phosphorus, Potassium and soil pH
+                    values to analyze soil conditions.
                 </p>
             </div>
 
-            <div class="step">
-                <span>🧪</span>
-                <h3>2. Analyze</h3>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌦️</div>
+
+                <h3>Environmental Data</h3>
+
                 <p>
-                    The system compares the values with
-                    crop requirements.
+                    Temperature, humidity and rainfall are considered
+                    to understand the growing environment.
                 </p>
             </div>
 
-            <div class="step">
-                <span>🌿</span>
-                <h3>3. Recommend</h3>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌾</div>
+
+                <h3>Crop Recommendation</h3>
+
                 <p>
-                    A suitable crop is displayed with
-                    its reason and definition.
+                    The system analyzes the provided parameters and
+                    displays a suitable crop with reasons.
                 </p>
             </div>
 
@@ -160,14 +391,96 @@
 
     </section>
 
-</div>
+
+    <!-- About -->
+    <section class="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000&q=80"
+                alt="Agriculture Field"
+            >
+
+        </div>
 
 
-<footer>
-    Smart Crop Recommendation System
-</footer>
+        <div class="about-content">
 
-<script src="script.js"></script>
+            <h2>
+                How Our System Helps
+            </h2>
+
+            <p>
+                Choosing the right crop depends on several soil and
+                environmental conditions. Our prototype provides a
+                simple way to analyze these parameters and understand
+                which crop may be suitable.
+            </p>
+
+            <div class="check">
+                ✅ Easy-to-use dashboard
+            </div>
+
+            <div class="check">
+                ✅ Soil parameter analysis
+            </div>
+
+            <div class="check">
+                ✅ Environmental condition analysis
+            </div>
+
+            <div class="check">
+                ✅ Crop recommendation with explanation
+            </div>
+
+            <br>
+
+            <a href="dashboard.html" class="btn btn-primary">
+                Start Analysis →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Call To Action -->
+    <section class="cta">
+
+        <h2>
+            Ready to Find a Suitable Crop?
+        </h2>
+
+        <p>
+            Enter your soil and environmental parameters
+            and explore the recommendation.
+        </p>
+
+        <a href="dashboard.html" class="btn btn-secondary">
+            🌾 Try Crop Recommendation
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            🌱 Smart Crop Recommendation System
+        </p>
+
+        <p>
+            Crop Recommendation Based on Soil Parameters
+        </p>
+
+        <p>
+            © 2026 Smart Crop Recommendation
+        </p>
+
+    </footer>
 
 </body>
 </html>
+```
