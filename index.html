@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🌱 Smart<span>Crop</span></div>
+
+    <div>
+        <a href="index.html">Dashboard</a>
+        <a href="about.html">About</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Crop Recommendation Based on Soil Parameters</h1>
+
+        <p>
+            A smart agriculture prototype that analyzes soil and
+            environmental parameters and recommends a suitable crop.
+        </p>
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="grid">
+
+        <!-- INPUT SECTION -->
+        <section class="card">
+
+            <h2>🌾 Soil & Environmental Parameters</h2>
+
+            <div class="form">
+
+                <label>
+                    Nitrogen (N)
+                    <input type="number" id="n" placeholder="Example: 90">
+                </label>
+
+                <label>
+                    Phosphorus (P)
+                    <input type="number" id="p" placeholder="Example: 42">
+                </label>
+
+                <label>
+                    Potassium (K)
+                    <input type="number" id="k" placeholder="Example: 43">
+                </label>
+
+                <label>
+                    Temperature (°C)
+                    <input type="number" id="temp" step="0.1"
+                           placeholder="Example: 25">
+                </label>
+
+                <label>
+                    Humidity (%)
+                    <input type="number" id="hum" step="0.1"
+                           placeholder="Example: 80">
+                </label>
+
+                <label>
+                    Soil pH
+                    <input type="number" id="ph" step="0.1"
+                           placeholder="Example: 6.5">
+                </label>
+
+                <label>
+                    Rainfall (mm)
+                    <input type="number" id="rain" step="0.1"
+                           placeholder="Example: 200">
+                </label>
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="sample" onclick="sampleInput()">
+                    ✨ Sample Input
+                </button>
+
+                <button class="recommend" onclick="recommendCrop()">
+                    🔍 Recommend Crop
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT SECTION -->
+        <section class="card result" id="result">
+
+            <div class="plant">🌱</div>
+
+            <h2>Ready for Analysis</h2>
+
+            <p>
+                Enter the soil parameters and click
+                <b>Recommend Crop</b>.
+            </p>
+
+            <div class="tip">
+                💡 <b>Tip:</b> Click Sample Input for a quick demonstration.
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+<!-- HOW IT WORKS -->
+
+<div class="container">
+
+    <section class="card">
+
+        <h2>⚙️ How It Works</h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <span>📝</span>
+                <h3>1. Input</h3>
+                <p>
+                    Enter nitrogen, phosphorus, potassium,
+                    pH and climate values.
+                </p>
+            </div>
+
+            <div class="step">
+                <span>🧪</span>
+                <h3>2. Analyze</h3>
+                <p>
+                    The system compares the values with
+                    crop requirements.
+                </p>
+            </div>
+
+            <div class="step">
+                <span>🌿</span>
+                <h3>3. Recommend</h3>
+                <p>
+                    A suitable crop is displayed with
+                    its reason and definition.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+    Smart Crop Recommendation System
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
